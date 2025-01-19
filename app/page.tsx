@@ -1,101 +1,112 @@
-import Image from "next/image";
+"use client";
+import { Hero } from "@/components/blocks/hero";
+import { Icons } from "@/components/ui/icons";
+import { Feature } from "@/components/ui/feature-with-image-carousel";
+import { FeaturesSectionWithHoverEffects } from "@/components/ui/feature-section-with-hover-effects";
+import { Pricing } from "@/components/ui/pricing";
+import { Footerdemo } from "@/components/ui/footer-section";
+
+const pricingPlans = [
+  {
+    name: "BASIC",
+    price: "9",
+    yearlyPrice: "7",
+    period: "per month",
+    features: [
+      "5 AI Interview Sessions",
+      "Basic feedback analysis",
+      "Common interview questions",
+      "Email support",
+      "Interview preparation guides",
+    ],
+    description: "Perfect for beginners starting their interview preparation",
+    buttonText: "Start Free Trial",
+    href: "/sign-up",
+    isPopular: false,
+  },
+  {
+    name: "PRO",
+    price: "29",
+    yearlyPrice: "23",
+    period: "per month",
+    features: [
+      "Unlimited AI Interview Sessions",
+      "Advanced feedback analysis",
+      "Industry-specific questions",
+      "Priority support",
+      "Custom interview scenarios",
+      "Performance tracking",
+      "Interview recording",
+    ],
+    description: "Best for active job seekers",
+    buttonText: "Get Started",
+    href: "/sign-up",
+    isPopular: true,
+  },
+  {
+    name: "ENTERPRISE",
+    price: "99",
+    yearlyPrice: "79",
+    period: "per month",
+    features: [
+      "Everything in Pro",
+      "Custom question sets",
+      "Team management",
+      "API access",
+      "Dedicated support",
+      "Custom integrations",
+      "Bulk licenses",
+      "Analytics dashboard",
+    ],
+    description: "For organizations and career counselors",
+    buttonText: "Contact Sales",
+    href: "/contact",
+    isPopular: false,
+  },
+];
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <main className="min-h-screen flex flex-col">
+      <div className="flex-grow">
+        <div className="pt-6">
+          <Hero
+            pill={{
+              text: "AI-Powered Interview Practice",
+              icon: <Icons.logo className="h-4 w-4" />,
+              variant: "default",
+              size: "md",
+            }}
+            content={{
+              title: "Master Your",
+              titleHighlight: "Interview Skills",
+              description:
+                "Practice interviews with advanced AI that simulates real-world scenarios. Get instant feedback, improve your responses, and build confidence for your next big opportunity.",
+              primaryAction: {
+                href: "/practice",
+                text: "Start Practicing",
+                icon: <Icons.logo className="h-4 w-4" />,
+              },
+              secondaryAction: {
+                href: "/explore",
+                text: "View Interview Types",
+                icon: <Icons.component className="h-4 w-4" />,
+              },
+            }}
+          />
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+        <div className="container mx-auto px-4 mt-20">
+          <FeaturesSectionWithHoverEffects />
+        </div>
+        <div className="mt-20">
+          <Pricing 
+            plans={pricingPlans}
+            title="Choose Your Interview Practice Plan"
+            description="Start with a plan that suits your needs. Upgrade or downgrade anytime."
           />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+        </div>
+      </div>
+      <Footerdemo />
+    </main>
   );
 }
