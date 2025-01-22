@@ -1,10 +1,18 @@
 "use client";
 import { Hero } from "@/components/blocks/hero";
 import { Icons } from "@/components/ui/icons";
-import { Feature } from "@/components/ui/feature-with-image-carousel";
-import { FeaturesSectionWithHoverEffects } from "@/components/ui/feature-section-with-hover-effects";
 import { Pricing } from "@/components/ui/pricing";
 import { Footerdemo } from "@/components/ui/footer-section";
+import { NavBar } from "@/components/ui/tubelight-navbar";
+import { Home as HomeIcon, Sparkles, CreditCard, Phone } from 'lucide-react';
+import { PatternCardDemo } from "@/components/ui/code.demo";
+
+const navItems = [
+  { name: 'Home', url: '#home', icon: HomeIcon },
+  { name: 'Features', url: '#features', icon: Sparkles },
+  { name: 'Pricing', url: '#pricing', icon: CreditCard },
+  { name: 'Contact', url: '#contact', icon: Phone }
+];
 
 const pricingPlans = [
   {
@@ -67,9 +75,10 @@ const pricingPlans = [
 
 export default function Home() {
   return (
-    <main className="min-h-screen flex flex-col">
-      <div className="flex-grow">
-        <div className="pt-6">
+    <main className="min-h-screen flex flex-col items-center w-full max-w-[2000px] mx-auto overflow-hidden scroll-smooth">
+      <NavBar items={navItems} />
+      <div className="flex-grow w-full">
+        <div id="home" className="pt-6 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Hero
             pill={{
               text: "AI-Powered Interview Practice",
@@ -95,10 +104,10 @@ export default function Home() {
             }}
           />
         </div>
-        <div className="container mx-auto px-4 mt-20">
-          <FeaturesSectionWithHoverEffects />
+        <div id="features" className="container mx-auto px-4 sm:px-6 lg:px-8 mt-20 w-full max-w-7xl">
+          <PatternCardDemo></PatternCardDemo>
         </div>
-        <div className="mt-20">
+        <div id="pricing" className="mt-20 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Pricing 
             plans={pricingPlans}
             title="Choose Your Interview Practice Plan"
@@ -106,7 +115,9 @@ export default function Home() {
           />
         </div>
       </div>
-      <Footerdemo />
+      <div id="contact" className="w-full">
+        <Footerdemo />
+      </div>
     </main>
   );
 }
