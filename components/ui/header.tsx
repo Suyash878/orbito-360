@@ -32,7 +32,7 @@ const NavigationBar = () => {
             </div>
             <div className="relative group">
               <Link href="/resources" className="text-gray-600 hover:text-gray-900">
-                Resources
+                Contact
               </Link>
             </div>
             <Link href="/pricing" className="text-gray-600 hover:text-gray-900">
