@@ -14,10 +14,11 @@ interface NavItem {
 
 interface NavBarProps {
   items: NavItem[]
+  logo?: React.ReactNode
   className?: string
 }
 
-export function NavBar({ items, className }: NavBarProps) {
+export function NavBar({ items, logo, className }: NavBarProps) {
   const [activeTab, setActiveTab] = useState(items[0].name)
   const [isMobile, setIsMobile] = useState(false)
 

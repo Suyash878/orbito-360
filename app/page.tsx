@@ -6,6 +6,8 @@ import { Footerdemo } from "@/components/ui/footer-section";
 import { NavBar } from "@/components/ui/tubelight-navbar";
 import { Home as HomeIcon, Sparkles, CreditCard, Phone } from 'lucide-react';
 import { PatternCardDemo } from "@/components/ui/code.demo";
+// import { Header1 } from "@/components/ui/header";
+import NavigationBar from "@/components/ui/header";
 
 const navItems = [
   { name: 'Home', url: '#home', icon: HomeIcon },
@@ -76,7 +78,7 @@ const pricingPlans = [
 export default function Home() {
   return (
     <main className="min-h-screen flex flex-col items-center w-full max-w-[2000px] mx-auto overflow-hidden scroll-smooth">
-      <NavBar items={navItems} />
+      <NavigationBar />
       <div className="flex-grow w-full">
         <div id="home" className="pt-6 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Hero
